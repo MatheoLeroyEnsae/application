@@ -7,6 +7,7 @@ from dotenv import load_dotenv
 import argparse
 
 import pandas as pd
+import logging
 
 from sklearn.model_selection import train_test_split
 
@@ -15,6 +16,14 @@ from train_evaluate import evaluate_model
 
 
 # ENVIRONMENT CONFIGURATION ---------------------------
+
+logging.basicConfig(
+    format="{asctime} - {levelname} - {message}",
+    style="{",
+    datefmt="%Y-%m-%d %H:%M",
+    level=logging.INFO
+)
+logging.info("test logging")
 
 load_dotenv()
 
