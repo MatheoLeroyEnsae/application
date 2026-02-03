@@ -1,7 +1,7 @@
 """
 Prediction de la survie d'un individu sur le Titanic
 """
-
+import argparse
 import os
 import matplotlib.pyplot as plt
 import pandas as pd
@@ -17,12 +17,29 @@ from sklearn.pipeline import Pipeline
 from sklearn.compose import ColumnTransformer
 from sklearn.metrics import confusion_matrix
 
+from dotenv import load_dotenv
+
+load_dotenv()
+JETON_API = os.environ.get("JETON_API", "")
+
+if JETON_API.startswith("$"):
+    print("API token has been configured properly")
+else:
+    print("API token has not been configured")
+
+print(20 * "-")
 
 os.chdir("/home/onyxia/work/application/")
+
 TrainingData = pd.read_csv("data.csv")
 
-TrainingData.head()
+parser = argparse.ArgumentParser(description="number of trees")
+parser.add_argument(
+    "--n_trees", type=int, default=20, help="Number of trees"
+)
+args = parser.parse_args()
 
+TrainingData.head()
 
 TrainingData["Ticket"].str.split("/").str.len()
 
@@ -54,9 +71,11 @@ sns.histplot(data=TrainingData, x="Age", bins=15, kde=False).set_title(
 plt.show()
 
 ## Encoder les données imputées ou transformées.
+#N_TREES = 20
+N_TREES = args.n_trees
+print("n_trees : ", N_TREES)
+print(20 * "-")
 
-
-N_TREES = 20
 MAX_DEPTH = None
 MAX_FEATURES = "sqrt"
 JETON_API = "$trotskitueleski1917"
