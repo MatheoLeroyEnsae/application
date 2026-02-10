@@ -18,7 +18,7 @@ from sklearn.metrics import confusion_matrix
 
 import duckdb
 
-from src.validation.check import (
+from titanicml.validation.check import (
     check_name_formatting,
     check_missing_values,
     check_data_leakage
