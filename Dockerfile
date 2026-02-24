@@ -13,5 +13,6 @@ COPY pyproject.toml .
 RUN uv sync
 
 COPY train.py .
+COPY app ./app
 COPY src ./src
-CMD ["uv", "run", "train.py"]
+CMD ["bash", "-c", "./app/run.sh"]
