@@ -15,6 +15,7 @@ from sklearn.pipeline import Pipeline
 from sklearn.compose import ColumnTransformer
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import confusion_matrix
+import skops.io as sio
 
 import duckdb
 
@@ -142,6 +143,7 @@ pipe = Pipeline(
 logging.debug(f"\n{80 * '-'}\nStarting model fitting phase\n{80 * '-'}")
 
 pipe.fit(X_train, y_train)
+sio.dump(pipe, "model.skops")
 rdmf_score = pipe.score(X_test, y_test)
 rdmf_score_tr = pipe.score(X_train, y_train)
 
