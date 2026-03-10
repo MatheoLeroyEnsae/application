@@ -1,0 +1,12 @@
+config.yaml
+__pycache__/
+.env
+*.log
+data/
+model.skops
+/.quarto/
+*.html
+*_files
+_site/
+
+**/*.quarto_ipynb
