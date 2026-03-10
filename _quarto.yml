@@ -2,7 +2,7 @@ project:
   type: website
 
 website:
-  title: "toto"
+  title: "application-website"
   navbar:
     left:
       - href: index.qmd
@@ -13,7 +13,7 @@ format:
     theme:
       - cosmo
       - brand
-    css: styles/styles.css
+    css: styles.css
     toc: true
 
 

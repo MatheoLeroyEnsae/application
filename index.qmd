@@ -3,22 +3,22 @@ title: "Jake avait-il une chance de survivre ?"
 echo: false
 ---
 
-Grâce à notre modèle, on peut répondre à cette question cruciale: 
+Grâce à notre modèle, on peut répondre à cette question cruciale:
 
 __Jake était-il condamné dès le début ?__
 
 ```{ojs}
 viewof gender = Inputs.radio(
     new Map([
-        ["Jake", "male"], 
+        ["Jake", "male"],
         ["Rose", "female"]
-    ]), 
+    ]),
     {
-        value: "male", 
+        value: "male",
         label: html`<b>Personnage</b>`,
         format: ([name, value]) => {
-            let imageUrl = value == "male" ? 
-                "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRM_MvbRXood7sNkM9z5OEVk_AeIhmWwLon1vvBuIYjOpCD394wNGdoAYloymicchUpgZU&usqp=CAU" : 
+            let imageUrl = value == "male" ?
+                "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRM_MvbRXood7sNkM9z5OEVk_AeIhmWwLon1vvBuIYjOpCD394wNGdoAYloymicchUpgZU&usqp=CAU" :
                 "https://static1.purebreak.com/articles/4/18/97/24/@/705016-titanic-decouvrez-quelle-autre-actrice-diapo-3.jpg";
             return html`<div style="text-align: center;">
                             <span style="display: block; text-transform: capitalize;">${value == "male" ? "Jake" : "Rose"}</span>
@@ -50,7 +50,7 @@ d3.json(prediction)
 ```
 
 ```{ojs}
-apiRoot = "https://titanic-ensae.lab.sspcloud.fr"
+apiRoot = "https://titanic-matheo-leroy-ensae.lab.sspcloud.fr/"
 ```
 
 ```{ojs}
@@ -69,5 +69,4 @@ default_class = gender == "male" ? 3 : 1
 ## Documentation de l'API
 
 Retrouver l'API sur [https://titanic-ensae.lab.sspcloud.fr/docs](https://titanic.lab.sspcloud.fr/docs) pour jouer avec
-d'autres exemples. 
-
+d'autres exemples.
