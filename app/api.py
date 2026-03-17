@@ -3,9 +3,33 @@
 from fastapi import FastAPI
 import skops.io as sio
 import pandas as pd
+import mlflow
+import logging
+
+logging.basicConfig(
+    format="{asctime} - {levelname} - {message}",
+    style="{",
+    datefmt="%Y-%m-%d %H:%M",
+    level=logging.DEBUG,
+    handlers=[logging.FileHandler("api.log"), logging.StreamHandler()],
+)
 
 unknown_types = sio.get_untrusted_types(file="model.skops")
 model = sio.load("model.skops", trusted=unknown_types)
+
+# Preload model -------------------
+
+logging.info(
+    "Getting model from MLFlow"
+)
+
+model_name = "production"
+model_version = "latest"
+
+# Load the model from the Model Registry
+model_uri = f"models:/{model_name}/{model_version}"
+model = mlflow.sklearn.load_model(model_uri)
+
 
 app = FastAPI(
     title="Démonstration du modèle de prédiction de survie sur le Titanic",

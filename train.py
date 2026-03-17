@@ -232,4 +232,4 @@ with mlflow.start_run():
     #mlflow.log_artifact(matrix_path)
 
     # Log model
-    #mlflow.sklearn.log_model(pipe, "model")
+    mlflow.sklearn.log_model(best_model, "model")
