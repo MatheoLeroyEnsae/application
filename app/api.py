@@ -14,8 +14,8 @@ logging.basicConfig(
     handlers=[logging.FileHandler("api.log"), logging.StreamHandler()],
 )
 
-unknown_types = sio.get_untrusted_types(file="model.skops")
-model = sio.load("model.skops", trusted=unknown_types)
+#unknown_types = sio.get_untrusted_types(file="model.skops")
+#model = sio.load("model.skops", trusted=unknown_types)
 
 # Preload model -------------------
 
